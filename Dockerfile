@@ -7,7 +7,9 @@ LABEL "com.github.actions.description"="Automatically revert a commit on '/rever
 LABEL "com.github.actions.icon"="git-pull-request"
 LABEL "com.github.actions.color"="red"
 
-RUN apk --no-cache add jq bash curl git
+RUN apt-get update && apt-get install -y \
+    jq
+
 
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
