@@ -1,15 +1,13 @@
-FROM maven:3.6.0-jdk-12-alpine
+FROM alpine:latest
 
-LABEL "name"="Maven CLI Action"
-LABEL "maintainer"="Luca Feger <luca@lucafeger.de>"
-LABEL "version"="1.0.0"
+LABEL repository="http://github.com/srt32/revert"
+LABEL homepage="http://github.com/srt32/revert"
+LABEL "com.github.actions.name"="Automatic Revert"
+LABEL "com.github.actions.description"="Automatically revert a commit on '/revert' comment"
+LABEL "com.github.actions.icon"="git-pull-request"
+LABEL "com.github.actions.color"="red"
 
-LABEL "com.github.actions.name"="GitHub Action for Maven"
-LABEL "com.github.actions.description"="Wraps the Maven CLI to enable Maven commands."
-LABEL "com.github.actions.icon"="package"
-LABEL "com.github.actions.color"="orange"
-COPY LICENSE README.md /
+RUN apk --no-cache add jq bash curl git
 
-COPY entrypoint.sh /entrypoint.sh
-
+ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
