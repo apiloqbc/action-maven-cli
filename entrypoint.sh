@@ -26,5 +26,4 @@ set -o xtrace
 git fetch origin master
 
 
-
-mvn clean install -B --settings .github.settings.xml 
+mvn clean install release:prepare release:perform -B -s .github.settings.xml
