@@ -27,4 +27,4 @@ git fetch origin master
 
 
 
-mvn release:prepare release:perform -B --settings .github.settings.xml 
+mvn clean install -B --settings .github.settings.xml 
