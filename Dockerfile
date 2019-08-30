@@ -1,4 +1,4 @@
-FROM maven:3.6.0-jdk-12-alpine
+FROM maven:3.6.1-jdk-8 
 
 LABEL repository="http://github.com/srt32/revert"
 LABEL homepage="http://github.com/srt32/revert"
