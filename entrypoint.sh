@@ -24,6 +24,7 @@ git config --global user.name \"$GHUSER\"
 set -o xtrace
 
 git fetch origin master
+git checkout master
 
 
 mvn clean install release:prepare release:perform -B -s .github.settings.xml
