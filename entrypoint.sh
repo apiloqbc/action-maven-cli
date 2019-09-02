@@ -15,4 +15,6 @@ set -o xtrace
 git checkout master
 
 
-mvn clean install release:prepare release:perform -B -s .github.settings.xml
+$NEW_VERSION = $(mvn org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout | sed -e "s/-SNAPSHOT//g")
+mvn versions:set -DnewVersion=1.0.3-SNAPSHOT
+mvn deploy
